@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet,Text,View, TouchableHighlight, Button } from 'react-native';
 import { Stopwatch, Timer } from 'react-native-stopwatch-timer';
+import styles from '../Styles'
  
 export default class Clock extends Component {
   constructor(props) {
@@ -55,7 +56,7 @@ export default class Clock extends Component {
         <View>
         <Stopwatch laps msecs start={this.state.stopwatchStart}
           reset={this.state.stopwatchReset}
-          options={options}
+          options={styles.options}
           getTime={this.getFormattedTime} />
         <TouchableHighlight onPress={this.toggleStopwatch}>
           <Text style={{fontSize: 25, alignSelf: 'center'}}>{!this.state.stopwatchStart ? "Start" : "Stop"}</Text>
@@ -68,7 +69,7 @@ export default class Clock extends Component {
         <View >
         <Timer totalDuration={this.state.totalDuration} msecs start={this.state.timerStart}
           reset={this.state.timerReset}
-          options={options}
+          options={styles.options}
           handleFinish={handleTimerComplete}
           getTime={this.getFormattedTime} />
         <TouchableHighlight onPress={this.toggleTimer}>
@@ -87,16 +88,3 @@ export default class Clock extends Component {
  
 const handleTimerComplete = () => alert("custom completion function");
  
-const options = {
-  container: {
-    backgroundColor: 'skyblue',
-    padding: 5,
-    borderRadius: 5,
-    width: 200
-  },
-  text: {
-    fontSize: 25,
-    color: 'black',
-    marginLeft: 7,
-  }
-};

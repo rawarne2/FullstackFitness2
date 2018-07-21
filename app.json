@@ -1,5 +1,12 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "sdkVersion": "27.0.0", 
+    "name": "Fullstack Fitness",
+    "icon": "http://www.pngmart.com/files/1/Running-Transparent-PNG.png",
+    "version": "0.1.0", 
+    "slug": "fullstack-fitness", 
+    "ios": {
+      "bundleIdentifier": "com.fullstackfitness.fullstack-fitness"
+    }
   }
 }

@@ -1,31 +1,28 @@
 import React from 'react';
-import { StyleSheet, Text, View, MapView } from 'react-native';
+import { Text, View, MapView } from 'react-native';
 import Map from './components/MapView'
 import Clock from './components/Timer'
 import NavBar from './components/NavBar'
+import styles from './Styles'
+import { Provider } from 'react-redux'
+import store from './store'
+
 
 export default class App extends React.Component {
   render() {
     return (
-      <View style={styles.container} style={{flex: 1}}>
-      <NavBar style={{flex: 1}}/>
-      <Map style={{flex: 1}}/>
-      <Clock style={{flex: 1}}/>
+      <View style={styles.container}>
+      <NavBar/>
+      <Map/>
+      <Clock/>
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 
+//Wrap View with <Provider store={store}>  when redux is complete
 
 
 

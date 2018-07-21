@@ -3,10 +3,8 @@ import { MapView, Speech } from 'expo';
 import { Dimensions, StatusBar, View, Text, StyleSheet, MapViewOverlay, TouchableHighlight} from 'react-native'
 import pick from 'lodash/pick'
 import haversine from 'haversine'
-import Clock from './Timer'
 
-// console.log(new Clock().style)
-// const { width, height } = Dimensions.get('window')   //takes up entire width of the phone. figure out how to get the other components to overlap on the top and bottom
+
 
 export default class Map extends React.Component {
     constructor (props) {
@@ -46,9 +44,9 @@ export default class Map extends React.Component {
     
       componentWillUnmount() {
         navigator.geolocation.clearWatch(this.watchID)
-        clearInterval(this._interval)
+        clearInterval(this._interval)             
       }
-    
+                                                    //does clearInterval do anything? 
       calcDistance(newLatLng) {
         const { prevLatLng } = this.state
         return (haversine(prevLatLng, newLatLng, { unit: 'mile' }) || 0)
@@ -58,9 +56,9 @@ export default class Map extends React.Component {
     render() {
 
     return (
-    <View>
+    <View style={{ zIndex: -1 }}>
       <MapView
-        style={{ width: 400, height: 560 }}
+        style={{ width: 400, height: 500}} //625 for iphoneX, 500 for iphone 6s
         initialRegion={{
           latitude: 41.8952660,
           longitude: -87.6390350,
@@ -74,8 +72,8 @@ export default class Map extends React.Component {
         onPress={this.talk}
         // showsCompass={true}
       />
-      <View>
-        <Text style={{ fontSize: 25 }}>{parseFloat(this.state.distanceTravelled).toFixed(2)} miles</Text>
+      <View style={{ backgroundColor: 'lightgray', padding: 5 }}>
+        <Text style={{fontSize: 25, alignSelf: 'center'}}>{parseFloat(this.state.distanceTravelled).toFixed(2)} miles</Text>
       </View>
       </View>
     )

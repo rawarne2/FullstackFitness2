@@ -15,7 +15,6 @@ export default class NavBar extends React.Component {
                     title: 'Fullstack Fitness',
                     passProps: {index: 1},
                 }}
-                style={{flex: 1}}
           />
         )
     }
